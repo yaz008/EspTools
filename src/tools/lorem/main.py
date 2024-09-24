@@ -28,4 +28,7 @@ def main() -> str:
     tokenizer: Tokenizer = Tokenizer(rules=LoremGrammar)
     tokens: list[str] = tokenizer.tokenize(expr=expr)
     words: list[str] = load_json(path=f'{path[0]}\\tools\\lorem\\words.json')
-    return generate_lorem(tokens=tokens, words=words)
+    lorem: str = generate_lorem(tokens=tokens, words=words)
+    if lorem == str():
+        lorem = generate_sentence(length=5, words=words)
+    return lorem
