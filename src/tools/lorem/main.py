@@ -6,10 +6,9 @@ from core.tokenizer import Tokenizer
 from tools.lorem.grammar import LoremGrammar
 
 def generate_sentence(length: int, words: list[str]) -> None:
-    if length in (0, 1, 2):
-        return ' '.join(['Lorem', 'ipsum'][:length])
-    else:
-        return ' '.join(['Lorem', 'ipsum'] + choices(words, k=length - 2))
+    k: int = max(0, length - 2)
+    words: list[str] = ['Lorem', 'ipsum'] + choices(words, k=k)
+    return ' '.join(words[:length])
     
 def generate_lorem(tokens: list[str], words: list[str]) -> str:
     lorem: str = ''
