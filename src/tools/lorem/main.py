@@ -1,7 +1,7 @@
 from os import getenv
 from sys import path
 from random import choices
-from utils.filemanip import load_json
+from core.filemanip import load_json
 from core.tokenizer import Tokenizer
 
 def generate_sentence(length: int, words: list[str]) -> None:
