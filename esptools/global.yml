@@ -1,0 +1,15 @@
+global_vars:
+    - name: esptools
+      type: echo
+      params:
+          echo: 'path-to-esptools-folder'
+
+    - name: esptools_python
+      type: echo
+      params:
+          echo: '{{esptools}}\.venv\Scripts\python.exe'
+
+    - name: esptools_main
+      type: echo
+      params:
+          echo: '{{esptools}}\src\main.py'
