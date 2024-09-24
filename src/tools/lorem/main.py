@@ -5,8 +5,7 @@ from core.tokenizer import Tokenizer
 from tools.lorem.grammar import LoremGrammar
 from tools.lorem.generate import generate_sentence, generate_lorem
 
-def main() -> str:
-    expr: str = getenv(key='ESPANSO_LOREM')
+def _main(expr: str) -> str:
     tokenizer: Tokenizer = Tokenizer(rules=LoremGrammar)
     tokens: list[str] = tokenizer.tokenize(expr=expr)
     words: list[str] = load_json(path=f'{path[0]}\\tools\\lorem\\words.json')
@@ -14,3 +13,7 @@ def main() -> str:
     if lorem == str():
         lorem = generate_sentence(length=5, words=words)
     return lorem
+
+def main() -> str:
+    expr: str = getenv(key='ESPANSO_LOREM')
+    return _main(expr=expr)
