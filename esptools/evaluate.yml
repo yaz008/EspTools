@@ -1,0 +1,12 @@
+matches:
+    - regex: '=(?P<expr>.+);'
+      replace: '{{result}}'
+      force_mode: clipboard
+      vars:
+          - name: result
+            type: script
+            params:
+                args:
+                    - '{{esptools_python}}'
+                    - '{{esptools_main}}'
+                    - 'evaluate'
