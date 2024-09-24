@@ -6,13 +6,11 @@ def generate_sentence(length: int, words: list[str]) -> None:
     return ' '.join(words[:length])
     
 def generate_lorem(tokens: list[str], words: list[str]) -> str:
-    lorem: str = ''
+    lorem: str = str()
     for token in tokens:
         match token:
-            case '.':
-                lorem += '. '
-            case '/':
-                lorem += '\n'
+            case '.': lorem += '. '
+            case '/': lorem += '\n'
             case number:
                 lorem += generate_sentence(length=int(number),
                                            words=words)
